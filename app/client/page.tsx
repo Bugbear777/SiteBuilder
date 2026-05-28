@@ -10,6 +10,9 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import { Ghost } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
 
 export default function Home() {
   return (
@@ -34,8 +37,9 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="relative overflow-hidden bg-[#315f72] text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.18),transparent_35%)]" />
+      <section className="relative overflow-hidden bg-[#174a7c] text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.2),transparent_35%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(23,74,124,1),rgba(14,38,64,1))]" />
 
         <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-24 md:grid-cols-[1.1fr_0.9fr] md:items-center">
           <div>
@@ -55,10 +59,10 @@ export default function Home() {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <Button variant={"default"} size="lg">
-                Contact Us
+                <a href="#contact">Contact Us</a>
               </Button>
               <Button size="lg" variant="ghost">
-                Learn More
+                <a href="https://residentassist.com/">Learn More</a>
               </Button>
             </div>
           </div>
@@ -195,49 +199,109 @@ export default function Home() {
             </Carousel>
         </section>
 
-      <section id="contact" className="bg-[#315f72] px-6 py-20 text-white">
-        <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1fr_0.8fr] md:items-center">
+      <section id="contact" className="bg-[#174a7c] px-6 py-20 text-white">
+  <div className="mx-auto max-w-7xl">
+    <div className="max-w-3xl">
+      <p className="text-sm font-bold uppercase tracking-widest text-[#d9a441]">
+        Get in Touch
+      </p>
+
+      <h2 className="mt-3 text-4xl font-bold">
+        Schedule a visit or ask us a question.
+      </h2>
+
+      <p className="mt-5 text-lg leading-8 text-white/80">
+        We would be happy to talk with you about care options, availability,
+        and whether our home is the right fit for your family.
+      </p>
+    </div>
+
+    <div className="mt-12 grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+      <Card className="border-white/10 bg-white text-slate-900">
+        <CardContent className="space-y-6 p-6">
           <div>
-            <p className="text-sm font-bold uppercase tracking-widest text-[#d9a441]">
-              Get in Touch
-            </p>
-            <h2 className="mt-3 text-4xl font-bold">
-              Schedule a visit or ask us a question.
-            </h2>
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-              We would be happy to talk with you about care options, availability,
-              and whether our home is the right fit for your family.
+            <p className="text-sm font-semibold text-slate-500">Phone</p>
+            <p className="mt-1 text-lg font-bold">(555) 123-4567</p>
+            <p className="mt-1 text-sm text-slate-500">
+              Call us to ask questions or schedule a visit.
             </p>
           </div>
 
-          <Card>
-            <CardContent className="space-y-4 p-6 text-slate-900">
-              <div>
-                <p className="text-sm font-semibold text-slate-500">Phone</p>
-                <p className="text-lg font-bold">(555) 123-4567</p>
+          <Separator />
+
+          <div>
+            <p className="text-sm font-semibold text-slate-500">Email</p>
+            <p className="mt-1 text-lg font-bold">info@example.com</p>
+            <p className="mt-1 text-sm text-slate-500">
+              Send us a message and we will get back to you soon.
+            </p>
+          </div>
+
+          <Separator />
+
+          <div>
+            <p className="text-sm font-semibold text-slate-500">Address</p>
+            <p className="mt-1 text-lg font-bold">123 Care Home Lane</p>
+            <p className="mt-1 text-sm text-slate-500">
+              Visits are available by appointment.
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+
+      <Card className="border-white/10 bg-white text-slate-900">
+        <CardContent className="p-6">
+          <div>
+            <h3 className="text-2xl font-bold">Send us a message</h3>
+            <p className="mt-2 text-sm leading-6 text-slate-500">
+              Tell us a little about what you are looking for and we will follow
+              up with more information.
+            </p>
+          </div>
+
+          <form className="mt-6 space-y-5">
+            <div className="grid gap-5 md:grid-cols-2">
+              <div className="space-y-2">
+                <Label htmlFor="first-name">First Name</Label>
+                <Input id="first-name" placeholder="Jane" />
               </div>
 
-              <Separator />
+              <div className="space-y-2">
+                <Label htmlFor="last-name">Last Name</Label>
+                <Input id="last-name" placeholder="Smith" />
+              </div>
+            </div>
 
-              <div>
-                <p className="text-sm font-semibold text-slate-500">Email</p>
-                <p className="text-lg font-bold">info@example.com</p>
+            <div className="grid gap-5 md:grid-cols-2">
+              <div className="space-y-2">
+                <Label htmlFor="email">Email</Label>
+                <Input id="email" type="email" placeholder="jane@example.com" />
               </div>
 
-              <Separator />
-
-              <div>
-                <p className="text-sm font-semibold text-slate-500">Address</p>
-                <p className="text-lg font-bold">123 Care Home Lane</p>
+              <div className="space-y-2">
+                <Label htmlFor="phone">Phone</Label>
+                <Input id="phone" type="tel" placeholder="(555) 123-4567" />
               </div>
+            </div>
 
-              <Button className="w-full bg-[#315f72] hover:bg-[#264b5a]">
-                Contact Us
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+            <div className="space-y-2">
+              <Label htmlFor="message">Message</Label>
+              <Textarea
+                id="message"
+                placeholder="Tell us about your care needs, timeline, or questions..."
+                className="min-h-32"
+              />
+            </div>
+
+            <Button className="w-full bg-[#315f72] hover:bg-[#264b5a] md:w-auto">
+              Send Message
+            </Button>
+          </form>
+        </CardContent>
+      </Card>
+    </div>
+  </div>
+</section>
 
       <footer className="bg-slate-950 px-6 py-8 text-white">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 md:flex-row">

@@ -15,6 +15,9 @@ export default function Page() {
             <Link href={"client"}>
             <Button className="mt-2">Client Page</Button>
           </Link>
+          <Link href={"landingPage"}>
+            <Button className="mt-2">Landing Page</Button>
+          </Link>
         </div>
         <div className="font-mono text-xs text-muted-foreground">
           (Press <kbd>d</kbd> to toggle dark mode)
